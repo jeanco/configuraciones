@@ -1,0 +1,135 @@
+INSTALAR RVM
+
+sudo apt-get install build-essential libssl-dev libreadline5 libreadline5-dev zlib1g zlib1g-dev curl
+
+\curl -sSL https://get.rvm.io | bash -s stable //para bajarnos todo lo RVM
+
+gedit ~/.bash_profile //esto es para ver el archivo que creo!!
+
+source ~/.profile //conesto activasy cargas el archivoparaq isntles RVM
+
+rvm
+rvm -v
+rvm -help
+
+--------------------
+OPCIONAL frameworck de Java : 
+instalamos RUBY.. OJO NO NOS OLVIDEMOS DE CAMBIAR EL.CONFIGURACION EN PREFEIENCIA DE PERFILD E TU TERMINAL  y ponemos en la segunda pestaña y ejecutamos el comando como interprete de conexión.
+
+rvm install 2.0.0 //podemos instalar todas las versiones
+rvm use --default 2.0.0 //para usar el ruby por defecto
+ruby -v //nos muestra la version istalada
+
+rvm list known //nos muestra la lista de todas las versiones de ruby instalas
+
+which ruby // no muestra la ruta de  Ruby...
+---------------------
+en caso hay conflictos, elimina las carpetas q se instalan en tu HOME como .rvm y .gem
+----------------------------
+luego instalamos  la GEMA DE RAILS
+
+gem install rails
+
+------------------------------------------
+Como instalar Ruby on Rails:
+sudo apt-get install ruby irb rdoc
+
+para preguntar si tienes instalado ruby :
+ruby -v
+
+
+Para crear nuestra primera aplicaci[on con ruby rails
+rails new app
+
+Para crear un controlador para apuntar a la vista // por recomendación que sean el mismo nombre, ambos.
+rails g controller nombre_controlador  nombre_vista
+
+
+Para crear nuestro primer modelo hacemos:
+rails g model Usuario usuario:string  pass:string
+
+
+mkdir: comando para la creacion de carpetas
+rmdir: comando para borrar carpeta o directorios
+touch: crear un archivo vacio
+ls: muestra la creacion del archivo
+cp: para copiar archivo  ejemplo  cp nombre_archivo  nombre_carpeta
+
+para crear un modificar, editar, eliminar
+rails g scaffold post tema:string texto:string
+
+Para saber cuales son las rutas generales de tu app
+rake routes
+
+Para migrar el nuevo modelo creado. O actualizar una tabla creada por codigo.
+Rake db:migrate
+
+Para poder arrancar el servidor.
+Rails s
+
+Librerias para actualizar a mi proyecto (GEMAS)
+bundle install
+
+
+layouts: principal cosas q se repitan
+aplications: es la pantalla principal
+
+ para insetar los datos que tengo en
+rake db:seed
+
+Para crear un nuev o modelo
+rails g model example
+
+para entrar a la cosola de rails
+rails console
+
+
+PARA MANEJAR DESDE CONSOLA DE RAILS.
+
+Para hacer la consulta de visulaisar todos los registros de la tabla 'Example'
+Example.all
+
+Para crear un nuevo campo
+u = Example.new
+
+Para darle un valor
+u.nombre = ' jeanco '
+
+Para guardar las lineas de codico
+u.save
+
+Para salir de la consola 
+exit
+
+Example.find(3)   //el id que tenga el numero tres
+Example.firts
+Example.last
+Example.all
+Example.where(: => “jeanco!”)
+Example.order(“nombre”)
+Example.order(“nombre DESC”) // ordenar de manera descendente
+Example.limit(5)
+Example.limit(5).offset(3) //necesito  q me muestre desde el 3 hasta el 5
+Example.order(“nombre DEC”).limit(3)
+
+SCAFFONLDING
+
+rails g scaffold Article title:string body:text
+
+
+para crear y configurar tu BD de postgred
+
+rails new mi-nueva-aplicacion -d postgresql
+
+Para evitarlo necesitas editar el archivo config/database.yml en tu aplicación Rails y agregar la línea siguiente en las tres configuraciones (development, test y production):
+host: localhost
+
+Cómo crear un usuario en la base de datos para la aplicación Rails
+Para crear un usuario llamado usuario_ejemplo que puedas usar en tu database.yml, teclea:
+
+
+sudo su postgres -c psql
+CREATE USER usuario_ejemplo WITH PASSWORD 'xxxxxx';
+ALTER ROLE usuario_ejemplo WITH CREATEDB;
+\q
+gem install PG // par ainstalar  el postgred  conexión de rails
